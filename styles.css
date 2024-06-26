@@ -1,0 +1,129 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px dotted red; */
+}
+
+:root {
+  --clr-tomato-red: hsl(4, 100%, 67%);
+  --clr-dark-slate-grey: hsl(234, 29%, 20%);
+  --clr-charcoal-grey: hsl(235, 18%, 26%);
+  --clr-grey: hsl(231, 7%, 60%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-black: hsl(0, 0%, 0%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--clr-white);
+  color: var(--clr-dark-slate-grey);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+main.container {
+  width: 375px;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  img.main-image {
+    width: 375px;
+    height: 284px;
+    object-fit: cover;
+  }
+
+  div.main-content {
+    width: 327px;
+    margin: 2em auto;
+
+    h1.main-title {
+      font-size: 4rem;
+      color: var(--clr-dark-slate-grey);
+    }
+
+    p.main-text {
+      margin-top: 1em;
+    }
+
+    ul.main-list {
+      margin-top: 1em;
+      list-style-type: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 1em;
+
+        &::before {
+          content: url('./assets/images/icon-list.svg');
+        }
+      }
+    }
+
+    form.newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      label.email-label {
+        font-size: small;
+        font-weight: 700;
+        color: var(--clr-black);
+      }
+
+      span.error-message {
+        display: none;
+        font-size: 1.2rem;
+        color: var(--clr-tomato-red);
+      }
+
+      input[type='email'] {
+        padding: 1em;
+        border: 1px solid var(--clr-grey);
+        border-radius: 5px;
+        font-size: 1.4rem;
+      }
+
+      button {
+        padding: 1em;
+        background-color: var(--clr-tomato-red);
+        color: var(--clr-white);
+        border: none;
+        border-radius: 5px;
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+modal.success-modal {
+  /* hide */
+  display: none;
+}
+
+footer {
+  margin-top: 3em;
+
+  .attribution {
+    font-size: 1rem;
+    text-align: center;
+
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
