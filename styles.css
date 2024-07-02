@@ -14,6 +14,7 @@
   --clr-dark-slate-grey: hsl(234, 29%, 20%);
   --clr-charcoal-grey: hsl(235, 18%, 26%);
   --clr-grey: hsl(231, 7%, 60%);
+  --clr-grey-dimmed: hsla(231, 7%, 60%, 0.4);
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: hsl(0, 0%, 0%);
 }
@@ -24,17 +25,27 @@ html {
 
 body {
   position: relative;
-  background-color: var(--clr-white);
+  width: auto;
+  min-height: 100vh;
+  background-color: var(--clr-charcoal-grey);
   color: var(--clr-dark-slate-grey);
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* ===== MOBILE STYLING ===== */
 
 main.container {
   width: 375px;
   margin: 0 auto;
+  background-color: var(--clr-white);
 
   display: flex;
   flex-direction: column;
@@ -42,6 +53,7 @@ main.container {
   align-items: center;
 
   img.main-image {
+    content: url('./assets/images/illustration-sign-up-mobile.svg');
     width: 375px;
     height: 284px;
     object-fit: cover;
@@ -57,6 +69,7 @@ main.container {
       font-size: 4rem;
       color: var(--clr-dark-slate-grey);
     }
+
     p.main-text {
       margin-top: 1.35em;
     }
@@ -67,14 +80,14 @@ main.container {
       list-style-type: none;
 
       li {
+        margin-bottom: 1em;
         display: flex;
         align-items: flex-start;
         gap: 1em;
-        margin-bottom: 1em;
 
         &::before {
           content: url('./assets/images/icon-list.svg');
-          align-self: self-start;
+          align-self: start;
           margin-top: 0.2em;
         }
       }
@@ -97,32 +110,35 @@ main.container {
           color: var(--clr-black);
         }
 
-        p.form-error {
+        p.form-error-msg {
           color: var(--clr-tomato-red);
         }
       }
 
+      /* Input Fields */
       input.form-input {
         height: 5.6rem;
         padding-left: 1.75em;
         border-radius: 8px;
-        border: 1px solid var(--clr-grey);
+        border: 1px solid var(--clr-grey-dimmed);
         color: var(--clr-dark-slate-grey);
         font-size: inherit;
         cursor: pointer;
 
         &:focus {
           outline: none;
+          border: 1px solid var(--clr-charcoal-grey);
         }
       }
 
-      /* JS code adds and removes the following */
+      /* Input Errors (class added/removed by JS) */
       .input-error {
         border: 1px solid var(--clr-tomato-red) !important;
         background-color: var(--clr-very-light-red);
         color: var(--clr-tomato-red) !important;
       }
 
+      /* Submit Button */
       button.submit-form {
         height: 5.6rem;
         margin-top: 1em;
@@ -210,12 +226,55 @@ dialog.confirmation-modal {
 
 /* -- Attribution -- */
 footer.attribution {
-  margin-bottom: 1em;
-  color: var(--clr-charcoal-grey);
+  margin: 1em;
+  color: var(--clr-white);
   font-size: 1.4rem;
   font-style: italic;
   text-align: center;
   a {
-    color: hsl(228, 45%, 44%);
+    color: var(--clr-tomato-red);
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== DESKTOP STYLING ===== */
+
+@media (min-width: 930px) {
+  main.container {
+    width: 928px;
+    height: 641px;
+    padding-right: 1.55em;
+    border-radius: 36px;
+
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    img.main-image {
+      content: url('./assets/images/illustration-sign-up-desktop.svg');
+      width: 400px;
+      height: 593px;
+      object-fit: cover;
+    }
+
+    div.main-content {
+      width: 376px;
+      height: 472px;
+
+      h1.main-title {
+        font-size: 5.5rem;
+      }
+
+      p.main-text {
+        margin-top: 0.6em;
+      }
+
+      ul.main-list {
+        li {
+          margin-bottom: 0.25em;
+        }
+      }
+    }
   }
 }

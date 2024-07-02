@@ -16,7 +16,6 @@ form.addEventListener('submit', e => {
   } else {
     emailInput.classList.remove('input-error')
     errorMsg.innerText = ''
-    console.log('Valid email: ', emailAddress)
   }
 })
 
