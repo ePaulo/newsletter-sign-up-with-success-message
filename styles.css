@@ -9,6 +9,7 @@
 
 :root {
   --clr-tomato-red: hsl(4, 100%, 67%);
+  --clr-very-light-red: hsla(4, 100%, 67%, 0.15);
   --clr-tomato-red-blur: hsla(4, 100%, 67%, 0.4);
   --clr-dark-slate-grey: hsl(234, 29%, 20%);
   --clr-charcoal-grey: hsl(235, 18%, 26%);
@@ -86,16 +87,20 @@ main.container {
       flex-direction: column;
       gap: 0.5em;
 
-      label.email-label {
+      div.label-and-error {
+        display: flex;
+        justify-content: space-between;
         font-size: small;
         font-weight: 700;
-        color: var(--clr-black);
-      }
 
-      span.error-message {
-        display: none;
-        font-size: 1.2rem;
-        color: var(--clr-tomato-red);
+        label.email-label {
+          color: var(--clr-black);
+        }
+
+        span.form-error {
+          display: none;
+          color: var(--clr-tomato-red);
+        }
       }
 
       input[type='email'] {
@@ -106,6 +111,17 @@ main.container {
         color: var(--clr-dark-slate-grey);
         font-size: inherit;
         cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .input-error {
+        display: none;
+        border: 1px solid var(--clr-tomato-red) !important;
+        background-color: var(--clr-very-light-red);
+        color: var(--clr-tomato-red) !important;
       }
 
       button.submit-form {

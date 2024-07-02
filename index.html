@@ -45,13 +45,18 @@
         </ul>
 
         <!-- NewsLetter Form -->
-        <form class="newsletter-form">
-          <label for="email" class="email-label">Email address</label>
-          <span class="error-message">Please provide a valid email</span>
+        <form class="newsletter-form" id="form">
+          <div class="label-and-error">
+            <label for="email" class="email-label">Email address</label>
+            <span class="form-error" id="error"
+              >Please provide a valid email</span
+            >
+          </div>
+
           <input
             type="email"
             id="email"
-            class="email-input"
+            class="form-input"
             placeholder="email@company.com"
             autofocus
           />
