@@ -9,6 +9,7 @@
 
 :root {
   --clr-tomato-red: hsl(4, 100%, 67%);
+  --clr-tomato-red-blur: hsla(4, 100%, 67%, 0.4);
   --clr-dark-slate-grey: hsl(234, 29%, 20%);
   --clr-charcoal-grey: hsl(235, 18%, 26%);
   --clr-grey: hsl(231, 7%, 60%);
@@ -17,20 +18,21 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
 body {
+  position: relative;
   background-color: var(--clr-white);
   color: var(--clr-dark-slate-grey);
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
+  line-height: 1.5;
 }
 
 main.container {
   width: 375px;
-  height: 100vh;
   margin: 0 auto;
 
   display: flex;
@@ -47,35 +49,39 @@ main.container {
   div.main-content {
     width: 327px;
     height: 100%;
-    margin-top: 2em;
+    margin: 2em auto;
 
+    /* -- Title & Text -- */
     h1.main-title {
       font-size: 4rem;
       color: var(--clr-dark-slate-grey);
     }
-
     p.main-text {
       margin-top: 1.35em;
     }
 
+    /* -- Updates List -- */
     ul.main-list {
       margin: 1.25em auto;
       list-style-type: none;
 
       li {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 1em;
         margin-bottom: 1em;
 
         &::before {
           content: url('./assets/images/icon-list.svg');
+          align-self: self-start;
+          margin-top: 0.2em;
         }
       }
     }
 
+    /* -- NewsLetter Form -- */
     form.newsletter-form {
-      margin-top: 4rem;
+      margin-top: 3.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.5em;
@@ -93,37 +99,103 @@ main.container {
       }
 
       input[type='email'] {
-        padding: 1em;
-        border: 1px solid var(--clr-grey);
-        border-radius: 5px;
-        font-size: 1.4rem;
-      }
-
-      button {
-        margin-top: 1em;
-        padding: 1em;
-        background-color: var(--clr-dark-slate-grey);
-        color: var(--clr-white);
-        border: none;
+        height: 5.6rem;
+        padding-left: 1.75em;
         border-radius: 8px;
+        border: 1px solid var(--clr-grey);
+        color: var(--clr-dark-slate-grey);
         font-size: inherit;
         cursor: pointer;
+      }
+
+      button.submit-form {
+        height: 5.6rem;
+        margin-top: 1em;
+        border: none;
+        border-radius: 8px;
+        background-color: var(--clr-dark-slate-grey);
+        color: var(--clr-white);
+        font-size: inherit;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--clr-tomato-red);
+          box-shadow: 0 10px 20px 0 var(--clr-tomato-red-blur);
+        }
       }
     }
   }
 }
 
-modal.success-modal {
-  /* hide */
-  display: none;
+/* -- Confirmation Modal -- */
+dialog.confirmation-modal {
+  position: fixed;
+  top: 0;
+  width: 375px;
+  height: 100vh;
+  margin: 0 auto;
+  padding-left: calc((375px - 327px) / 2);
+  padding-top: 15rem;
+  border: none;
+  background-color: var(--clr-white);
+  z-index: 100;
+
+  /* Confirmation Message */
+  div.confirmation-message {
+    width: 327px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2em;
+
+    img.success-icon {
+      width: 64px;
+      height: 64px;
+      /* margin-top: 2em; */
+    }
+
+    h2.confirmation-title {
+      margin-top: 0.15em;
+      margin-bottom: -0.15em;
+      color: var(--clr-dark-slate-grey);
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    p.confirmation-text {
+      color: var(--clr-dark-slate-grey);
+      font-size: 1.6rem;
+    }
+  }
+
+  /* Close Modal Button */
+  button.close-modal {
+    width: 327px;
+    height: 5.6rem;
+    margin: 5em auto 2em auto;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--clr-dark-slate-grey);
+    color: var(--clr-white);
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--clr-tomato-red);
+      box-shadow: 0 10px 20px 0 var(--clr-tomato-red-blur);
+    }
+  }
 }
 
+/* -- Attribution -- */
 footer.attribution {
   margin-bottom: 1em;
+  color: var(--clr-charcoal-grey);
+  font-size: 1.4rem;
+  font-style: italic;
   text-align: center;
-  font-size: 1.3rem;
-  text-align: center;
-
   a {
     color: hsl(228, 45%, 44%);
   }

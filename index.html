@@ -29,16 +29,22 @@
         src="./assets/images/illustration-sign-up-mobile.svg"
         alt="sign up illustration"
       />
+
       <div class="main-content">
+        <!-- Title & Text -->
         <h1 class="main-title">Stay updated!</h1>
         <p class="main-text">
           Join 60,000+ product managers receiving monthly updates on:
         </p>
+
+        <!-- Updates List -->
         <ul class="main-list">
           <li>Product discovery and building what matters</li>
           <li>Measuring to ensure updates are a success</li>
           <li>And much more!</li>
         </ul>
+
+        <!-- NewsLetter Form -->
         <form class="newsletter-form">
           <label for="email" class="email-label">Email address</label>
           <span class="error-message">Please provide a valid email</span>
@@ -47,34 +53,42 @@
             id="email"
             class="email-input"
             placeholder="email@company.com"
+            autofocus
           />
-          <button type="submit" class="submit-button">
+          <button type="submit" class="submit-form">
             Subscribe to monthly newsletter
           </button>
         </form>
       </div>
     </main>
 
-    <modal class="success-modal">
-      <img
-        src="./assets/images/icon-success.svg"
-        alt="Success icon"
-        class="success-icon"
-      />
-      <h2 class="success-title">Thanks for subscribing!</h2>
-      <p class="success-content">
-        A confirmation email has been sent to
-        <strong class="confirm-email">ash@loremcompany.com</strong>. Please open
-        it and click the button inside to confirm your subscription.
-      </p>
-      <button class="close-modal">Dismiss message</button>
-    </modal>
+    <!-- Confirmation Modal -->
+    <dialog class="confirmation-modal" id="modal">
+      <div class="confirmation-message" aria-hidden="true">
+        <img
+          src="./assets/images/icon-success.svg"
+          alt="confirmation success icon"
+          class="success-icon"
+        />
+        <h2 class="confirmation-title">Thanks for subscribing!</h2>
+        <p class="confirmation-text">
+          A confirmation email has been sent to
+          <strong class="confirmation-email">ash@loremcompany.com</strong>.
+          Please open it and click the button inside to confirm your
+          subscription.
+        </p>
+      </div>
+      <button class="close-modal" autofocus>Dismiss message</button>
+    </dialog>
 
+    <!-- Attribution -->
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by Paul O.
     </footer>
+
+    <script src="scripts.js"></script>
   </body>
 </html>
