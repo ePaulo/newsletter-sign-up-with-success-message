@@ -3,10 +3,32 @@
 
 // DOM Element References
 const form = document.getElementById('form')
-const error = document.getElementById('error')
-const email = document.getElementById('email')
+const errorMsg = document.getElementById('error-message')
+const emailInput = document.getElementById('email-input')
 
 // Event Listeners
 form.addEventListener('submit', e => {
   e.preventDefault()
+  const emailAddress = emailInput.value
+  if (!validateEmail(emailAddress)) {
+    emailInput.classList.add('input-error')
+    errorMsg.innerText = 'Valid email required'
+  } else {
+    emailInput.classList.remove('input-error')
+    errorMsg.innerText = ''
+    console.log('Valid email: ', emailAddress)
+  }
 })
+
+emailInput.addEventListener('focus', () => {
+  if (emailInput.classList.contains('input-error')) {
+    emailInput.classList.remove('input-error')
+    errorMsg.innerText = ''
+  }
+})
+
+// Functions
+function validateEmail(email) {
+  const re = /\S+@\S+\.\S+/
+  return re.test(email)
+}

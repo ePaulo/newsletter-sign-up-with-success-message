@@ -87,7 +87,7 @@ main.container {
       flex-direction: column;
       gap: 0.5em;
 
-      div.label-and-error {
+      div.label-and-error-message {
         display: flex;
         justify-content: space-between;
         font-size: small;
@@ -97,13 +97,12 @@ main.container {
           color: var(--clr-black);
         }
 
-        span.form-error {
-          display: none;
+        p.form-error {
           color: var(--clr-tomato-red);
         }
       }
 
-      input[type='email'] {
+      input.form-input {
         height: 5.6rem;
         padding-left: 1.75em;
         border-radius: 8px;
@@ -117,8 +116,8 @@ main.container {
         }
       }
 
+      /* JS code adds and removes the following */
       .input-error {
-        display: none;
         border: 1px solid var(--clr-tomato-red) !important;
         background-color: var(--clr-very-light-red);
         color: var(--clr-tomato-red) !important;
@@ -136,7 +135,11 @@ main.container {
 
         &:hover {
           background-color: var(--clr-tomato-red);
+        }
+
+        &:active {
           box-shadow: 0 10px 20px 0 var(--clr-tomato-red-blur);
+          transform: translateY(2px);
         }
       }
     }

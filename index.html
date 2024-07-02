@@ -46,19 +46,18 @@
 
         <!-- NewsLetter Form -->
         <form class="newsletter-form" id="form">
-          <div class="label-and-error">
+          <div class="label-and-error-message">
             <label for="email" class="email-label">Email address</label>
-            <span class="form-error" id="error"
-              >Please provide a valid email</span
-            >
+            <p class="form-error" id="error-message"></p>
           </div>
 
           <input
-            type="email"
-            id="email"
+            type="text"
+            id="email-input"
             class="form-input"
             placeholder="email@company.com"
             autofocus
+            novalidate
           />
           <button type="submit" class="submit-form">
             Subscribe to monthly newsletter
