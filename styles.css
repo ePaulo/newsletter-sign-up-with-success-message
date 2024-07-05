@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 
-/* ===== MOBILE STYLING ===== */
+/* ===== default: MOBILE STYLING ===== */
 
 main.container {
   width: 375px;
@@ -162,7 +162,7 @@ main.container {
   }
 }
 
-/* -- Confirmation Modal -- */
+/* -- Mobile Confirmation Modal -- */
 dialog.confirmation-modal {
   position: fixed;
   top: 0;
@@ -175,7 +175,7 @@ dialog.confirmation-modal {
   background-color: var(--clr-white);
   z-index: 100;
 
-  /* Confirmation Message */
+  /* Mobile Confirmation Message */
   div.confirmation-message {
     width: 327px;
 
@@ -188,7 +188,6 @@ dialog.confirmation-modal {
     img.success-icon {
       width: 64px;
       height: 64px;
-      /* margin-top: 2em; */
     }
 
     h2.confirmation-title {
@@ -219,7 +218,11 @@ dialog.confirmation-modal {
 
     &:hover {
       background-color: var(--clr-tomato-red);
+    }
+
+    &:active {
       box-shadow: 0 10px 20px 0 var(--clr-tomato-red-blur);
+      transform: translateY(2px);
     }
   }
 }
@@ -231,6 +234,7 @@ footer.attribution {
   font-size: 1.4rem;
   font-style: italic;
   text-align: center;
+
   a {
     color: var(--clr-tomato-red);
     font-weight: 700;
@@ -238,7 +242,7 @@ footer.attribution {
   }
 }
 
-/* ===== DESKTOP STYLING ===== */
+/* ===== media: DESKTOP STYLING ===== */
 
 @media (min-width: 930px) {
   main.container {
@@ -275,6 +279,32 @@ footer.attribution {
           margin-bottom: 0.25em;
         }
       }
+    }
+  }
+
+  /* -- Desktop Confirmation Modal -- */
+  dialog.confirmation-modal {
+    top: calc(0.5 * (100vh - 520px));
+    left: -350px;
+    width: 504px;
+    height: 520px;
+    padding: 64px;
+    border: 1px solid var(--clr-grey-dimmed);
+    border-radius: 36px;
+
+    /* Desktop Confirmation Message */
+    div.confirmation-message {
+      width: 376px;
+
+      h2.confirmation-title {
+        font-size: 5.5rem;
+      }
+    }
+
+    /* Close Modal Button */
+    button.close-modal {
+      width: 376px;
+      margin: 2em auto;
     }
   }
 }

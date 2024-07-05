@@ -1,10 +1,13 @@
-// Coded by Paul O
-// Date: 2024-7-1
+// Challenge coded by Paul O
+// Submitted on July 5, 2024
 
 // DOM Element References
 const form = document.getElementById('form')
 const errorMsg = document.getElementById('error-message')
 const emailInput = document.getElementById('email-input')
+const confirmModal = document.getElementById('confirm-modal')
+const closeModalBtn = document.getElementById('close-modal-btn')
+const emailEntered = document.getElementById('email-entered')
 
 // Event Listeners
 form.addEventListener('submit', e => {
@@ -14,8 +17,11 @@ form.addEventListener('submit', e => {
     emailInput.classList.add('input-error')
     errorMsg.innerText = 'Valid email required'
   } else {
+    emailEntered.innerText = emailAddress
+    confirmModal.showModal()
     emailInput.classList.remove('input-error')
     errorMsg.innerText = ''
+    emailInput.value = ''
   }
 })
 
@@ -24,6 +30,11 @@ emailInput.addEventListener('focus', () => {
     emailInput.classList.remove('input-error')
     errorMsg.innerText = ''
   }
+})
+
+closeModalBtn.addEventListener('click', () => {
+  confirmModal.close()
+  emailEntered.innerText = 'your email address'
 })
 
 // Functions
